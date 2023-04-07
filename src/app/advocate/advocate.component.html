@@ -1,0 +1,62 @@
+<div class="container-fluid p-2">
+
+    <span style="font-size: x-large;" >Add Advocate </span>
+        <!-- {{advocateform.value|json}} -->
+    <form [formGroup]="advocateForm" (ngSubmit)="onSubmit()">
+        <div class="form-group" >
+            <div class="border-box border-dark "> 
+            <input type="file" name="photo" id="photo" class="hidden"></div>
+
+
+            <input class="my-2 rounded-3 border-dark" 
+                [class.is-invalid]="advName?.touched && advName?.invalid"    
+                name="advocateName" type="text" formControlName="advocateName" placeholder="name" >
+                <div *ngIf="advName?.invalid && advName?.touched" >
+                    <small *ngIf="advName?.invalid"class="text-danger">*This field is mandatory</small>
+                </div>
+
+
+
+            <input class="my-2 rounded-3 border-dark" 
+            [class.is-invalid]="advNumber?.touched && advNumber?.invalid"    
+            name="mobileNumber" type="tel" formControlName="mobileNumber"placeholder="mobile Number" >
+            <div *ngIf="advNumber?.invalid && advNumber?.touched" >
+                <small *ngIf="advNumber?.invalid"class="text-danger">*This field is mandatory</small>
+            </div>
+
+            <input class="my-2 rounded-3 border-dark"
+            [class.is-invalid]="advJoiningDate?.touched && advJoiningDate?.invalid"    
+            name="joiningDate" type="text"onhover="(this.type='date')" formControlName="joiningDate" placeholder="Joining date" >
+            <div *ngIf="advJoiningDate?.invalid && advJoiningDate?.touched" >
+                <small *ngIf="advJoiningDate?.invalid"class="text-danger">*This field is mandatory</small>
+            </div>
+
+            <input class="my-2 rounded-3 border-dark" 
+            [class.is-invalid]="advAddress?.touched && advAddress?.invalid"    
+            name="address" type="textarea" formControlName="address"placeholder="Address" >
+            <div *ngIf="advAddress?.invalid && advAddress?.touched" >
+                <small *ngIf="advAddress?.invalid"class="text-danger">*This field is mandatory</small>
+            </div>
+        </div>
+        <div class=" flexbox  d-sm-flex flex-column justify-content-start align-self-start " >
+            <h2 >Specialization</h2>
+           <div class=" my-2">
+             <input class="m-2 border-dark " type="checkbox"  id="#1"><label for="#1">Tax Lawyer</label>
+            </div>
+            <div class=" my-2 ">
+            <input class="m-2 border-dark" type="checkbox"  id="#2"><label for="#2">Criminal Lawyer</label>
+            </div>
+            <div class=" my-2">
+                <input class="m-2 border-dark" type="checkbox"  id="#3"> <label for="#3">IntellectualPproperty Lawyer</label>
+            </div>
+            <div class=" my-2">
+                <input class="m-2 border-dark" type="checkbox"  id="#4"><label for="#4">Business Lawyer</label>
+            </div>
+            <div class="my-2">
+                <input class="m-2 border-dark" type="checkbox" id="#5"> <label for="#5">Family Lawyer</label>
+            </div>
+        </div>
+        <button class="btn btn-dark" type="submit" (click)="onSave()">Save</button>
+        
+    </form>
+</div>

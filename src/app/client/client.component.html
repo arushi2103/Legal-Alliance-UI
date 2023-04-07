@@ -1,0 +1,38 @@
+<div class="container-fluid">
+
+    <h1 class="m-3">Add client</h1>
+    <form [formGroup]="clientform">
+        <div class="form-group">
+            <input class="my-2 rounded-3 border-dark"
+            type="file" name="document" id="" >
+            
+
+            <input class="my-2 rounded-3 border-dark"
+            [class.is-invalid]="clientName?.invalid && clientName?.touched"
+            type="text" name="Name" id=" "  
+            formControlName="Name" name="Name"placeholder="Enter Name ">
+            <div *ngIf="clientName?.invalid && clientName?.touched" >
+                <small *ngIf="clientName?.invalid"class="text-danger">*This field is mandatory</small>
+              </div>
+
+            <input class="my-2 rounded-3 border-dark"
+            [class.is-invalid]="clientMobileNumber?.invalid && clientMobileNumber?.touched"
+            type="tel" name="contact" id="" formControlName="Number" name="Number" placeholder="Mobile Number">
+            <div *ngIf="clientMobileNumber?.invalid && clientMobileNumber?.touched" >
+                <small *ngIf="clientMobileNumber?.invalid"class="text-danger">*This field is mandatory</small>
+            </div>
+
+            <input class="my-2 rounded-3 border-dark"
+            [class.is-invalid]="clientAddress?.invalid && clientAddress?.touched"
+            type="textarea" name="address" id="" formControlName="Address" namr="Address"placeholder="Address">
+            <div *ngIf="clientAddress?.invalid && clientAddress?.touched" >
+                <small *ngIf="clientAddress?.invalid"class="text-danger">*This field is mandatory</small>
+            </div>
+            <button type="submit" (click)="onSave()">Save</button>
+        </div>
+     
+    </form>
+</div>
+
+
+        

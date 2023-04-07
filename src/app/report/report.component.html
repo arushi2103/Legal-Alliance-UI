@@ -1,0 +1,22 @@
+<div class="container-fluid">
+        <nav >
+                <span style="font-size: x-large;" class="font-weight-bold" >Report</span>
+                <button class="btn btn-dark my-3">Download Excel</button>
+                <mat-icon >filter_alt</mat-icon>
+               
+        </nav>
+       <div>
+        <h2>Case List</h2>
+        <div  class=" report-card d-flex flex-column align-items-center justify-items-center rounded-4 shadow-lg my-4 p-3 border-none"
+                *ngFor="let val of reports">                
+                <input type="text" class="form-control m-2"name="caseNumber"formControlName="caseNumber" placeholder="Case No.">
+                <input type="text" class="form-control m-2"name="advocateName"formControlName="advocateName" placeholder=" Advocate Name">
+                <input type="text" class="form-control m-2"name="nextDate"formControlName="nextDate" placeholder="Next Date">
+                
+                <button class="btn btn-dark my-2">View</button>
+                
+        </div>
+       </div>
+
+
+</div>

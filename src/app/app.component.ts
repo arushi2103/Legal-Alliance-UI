@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Legalalliance';
+    isLoading = true;
+    isLogIn:boolean=false;
+
+    ngOnInit() {
+      // Simulate a delay while your app loads
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 3000);
+    }
+    
+  
 }

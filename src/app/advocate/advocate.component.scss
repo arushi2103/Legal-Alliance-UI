@@ -1,0 +1,36 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+      width: 100%;
+      margin: auto;
+
+      input {
+        padding: 1rem;
+
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+        width: 100%;
+        margin: auto;
+      }
+    }
+    button[type="submit"] {
+        padding: 1rem 1rem;
+        margin: auto;
+        width: 100%;
+        border-radius: 4px;
+        border: none;
+        background-color:black;
+        color: #fff;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+  }
+  
