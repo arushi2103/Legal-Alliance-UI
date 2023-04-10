@@ -4,6 +4,7 @@ import { FormBuilder,Validators,FormGroup}  from '@angular/forms';
 import { AbstractControl } from '@angular/forms';
 import { Route, RouterLink,Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
     return this.loginform.get('username');
   }
   constructor(private fb:FormBuilder,
-    private http:HttpClient,
+    private http:HttpService,
     private route:Router,
     private auth:AuthService) { 
    
@@ -58,7 +59,7 @@ export class LoginComponent implements OnInit {
 
   submitForm(){
     const formValue=this.loginform.value;
-    this.http.post('/localhost:4200', formValue).subscribe((response) => {
+    this.http.post('/login', formValue).subscribe((response) => {
       console.log(response);
     });
   } 

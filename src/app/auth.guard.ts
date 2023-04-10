@@ -8,20 +8,18 @@ import { AuthService } from './auth.service';
 })
 export class AuthGuard implements CanActivate {
   constructor(
-    private route: Router, 
-    private router:Router,
+    
     private auth: AuthService,
     ) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
     return true;
-    // if (this.auth.isLoggedIn()){
-    //   return true;
-    // }
-    // alert("You have not logged In")
-    // this.router.navigate(['login']);
-    // return false;
+    if (this.auth.isLoggedIn()){
+      return true;
+    }
+    alert("You have not logged In")
+    return false;
     
   }
   

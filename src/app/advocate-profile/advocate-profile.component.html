@@ -1,18 +1,16 @@
 <div class="container-fluid py-3">
-    <div>
-        <nav class=" navbar-light">
-
-            <span style="font-size: x-large;" >Advocate Profile</span>
-          </nav>
-    </div>
+    <div class="navbar d-inline-flex"> 
+        <mat-icon (click)="showMenu()">home</mat-icon>
+        <span style="font-size: x-large;margin:0 1rem" >Advocate Profile </span>
+    </div> 
     <div class="my-3" >
         <div *ngFor="let advocate of Advocates"class="card border-dark py-2 my-2">
           <div class="profile">
            <img src="../../assets/LOGO.png" alt="profile-img" style="max-height: 4rem;">
-            <p>{{advocate}}</p>
+            <p>{{advocate.advocateName}}</p>
            <div class="">
-            <mat-icon class="mx-2">edit</mat-icon>
-            <mat-icon class="mx-2">delete</mat-icon>
+            <mat-icon class="mx-2" (click)="onEdit(advocate.id)">edit</mat-icon>
+            <mat-icon class="mx-2" (click)="onDelete(advocate.id)">delete</mat-icon>
            </div>
           </div>
     </div>

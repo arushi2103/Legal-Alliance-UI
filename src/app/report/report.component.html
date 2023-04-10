@@ -7,15 +7,13 @@
         </nav>
        <div>
         <h2>Case List</h2>
-        <div  class=" report-card d-flex flex-column align-items-center justify-items-center rounded-4 shadow-lg my-4 p-3 border-none"
-                *ngFor="let val of reports">                
-                <input type="text" class="form-control m-2"name="caseNumber"formControlName="caseNumber" placeholder="Case No.">
-                <input type="text" class="form-control m-2"name="advocateName"formControlName="advocateName" placeholder=" Advocate Name">
-                <input type="text" class="form-control m-2"name="nextDate"formControlName="nextDate" placeholder="Next Date">
-                
-                <button class="btn btn-dark my-2">View</button>
-                
-        </div>
+          <div  class=" report-card d-flex flex-column align-items-center justify-items-center rounded-4 shadow-lg my-4 p-3 border-none"
+                  *ngFor="let val of reports">                
+                  <div class="form-control m-2 p-2">{{ val.case }}</div>
+                  <div class="form-control m-2 p-2">{{ val.adv }}</div>
+                  <div class="form-control m-2 p-2">{{ val.nextDate }}</div>
+                  <button class="btn btn-dark my-2">View</button>      
+          </div>
        </div>
 
 

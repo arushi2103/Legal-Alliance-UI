@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators, FormGroup } from '@angular/forms';
 import { Route,RouterLink,Router  } from '@angular/router';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-newcase',
@@ -37,7 +39,8 @@ get amountReceived(){
 
 
   constructor(private fb:FormBuilder,
-              private route:Router) { }
+              private route:Router,
+              private http:HttpService) { }
 
   ngOnInit(): void {
     this.newCaseForm=this.fb.group({
@@ -63,11 +66,22 @@ get amountReceived(){
   paymentdata=[];
   paymentmodes=["Cash","Debit Card/Credit Card","UPI","Net Banking "]
 
+  onSubmit(){
+    // console.log(this.newCaseForm.value);
+    this.http.post('cases', this.newCaseForm.value).subscribe((response)=>{
+      console.log(response);
+      console.log(this.newCaseForm.value);
+      this.route.navigate(['advocate-profile'])
 
+    })
+  }
   onSave(){
     console.log("Newcase Is Added");
     console.log(this.newCaseForm.value);
     this.route.navigate(['advocate-profile'])
+  }
+  showMenu(){
+    this.route.navigate(['menu']);
   }
   calculateAmount(){
    

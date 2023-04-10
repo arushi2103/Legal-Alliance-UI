@@ -9,7 +9,6 @@ import {MatIconModule} from '@angular/material/icon';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-
 import { HttpClientModule } from '@angular/common/http';
 // import { HeaderComponent } from './header/header.component';
 // import { LoginComponent } from './login/login.component';
@@ -25,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents,
+    routingComponents
     // HeaderComponent,
     // LoginComponent,
     // SpashComponent,
@@ -45,7 +44,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
 
   ],
   providers: [],

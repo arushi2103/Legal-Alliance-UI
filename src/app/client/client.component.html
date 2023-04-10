@@ -1,11 +1,15 @@
 <div class="container-fluid">
 
-    <h1 class="m-3">Add client</h1>
-    <form [formGroup]="clientform">
+    <div class="navbar d-inline-flex"> 
+        <mat-icon (click)="showMenu()">menu</mat-icon>
+        <span style="font-size: x-large;margin:0 1rem" >Add Client </span>
+    </div> 
+    <form [formGroup]="clientform" (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <input class="my-2 rounded-3 border-dark"
-            type="file" name="document" id="" >
-            
+            <div class="card border-box border-dark my-2 img_div"style="height:10rem; width:9rem;"(click)="addImg()"> 
+                <input type="file" formControlName="imageFile"*ngIf="showImgInput" class="img-input"placeholder="add Image">
+                <span >Upload Image </span>
+                </div> 
 
             <input class="my-2 rounded-3 border-dark"
             [class.is-invalid]="clientName?.invalid && clientName?.touched"
@@ -28,7 +32,7 @@
             <div *ngIf="clientAddress?.invalid && clientAddress?.touched" >
                 <small *ngIf="clientAddress?.invalid"class="text-danger">*This field is mandatory</small>
             </div>
-            <button type="submit" (click)="onSave()">Save</button>
+            <button type="submit"  >Save</button>
         </div>
      
     </form>

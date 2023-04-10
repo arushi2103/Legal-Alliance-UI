@@ -1,6 +1,9 @@
 <div class="container-fluid">
-    <h1 class="m-3">Add New Case</h1>
-    <form [formGroup]="newCaseForm" (ngSubmit)="onSave()" >
+    <div class="navbar d-inline-flex"> 
+        <mat-icon (click)="showMenu()">menu</mat-icon>
+        <span style="font-size: x-large;margin:0 1rem" >Add New Case </span>
+    </div> 
+    <form [formGroup]="newCaseForm" (ngSubmit)="onSubmit()" >
         <div class="form-group ">
             <input class="my-2 rounded-3 border-dark"
                 [class.is-invalid]="caseNumber?.touched && caseNumber?.invalid"

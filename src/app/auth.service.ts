@@ -4,7 +4,7 @@ import { Observable, of, throwError,Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
-})
+}) 
 export class AuthService {
  
   constructor(private router:Router) {

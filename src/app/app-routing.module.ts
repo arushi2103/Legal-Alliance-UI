@@ -20,7 +20,7 @@ const routes: Routes = [
   {path:'menu',canActivate:[AuthGuard], component:MenuComponent},
   {path:'newcase',canActivate:[AuthGuard],component:NewcaseComponent, },
   {path:'report',canActivate:[AuthGuard],component:ReportComponent},
-  {path:'advocate',canActivate:[AuthGuard],component:AdvocateComponent},
+  {path:'advocate',component:AdvocateComponent},
   {path:'advocate-profile',canActivate:[AuthGuard],component:AdvocateProfileComponent},
   {path:'client',canActivate:[AuthGuard],component:ClientComponent},
   {path:'header',canActivate:[AuthGuard],component:HeaderComponent}

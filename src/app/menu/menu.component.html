@@ -1,15 +1,14 @@
 <div>
-
-  <!-- <nav class="nav navbar navbar-light">
-    <mat-icon style="font-size: xx-large;" class="mx-3">menu</mat-icon>   
-    <span style="font-size: x-large;" >Menu</span>
-  </nav> -->
+  <div class="navbar d-inline-flex"> 
+    <mat-icon>menu</mat-icon>
+    <span style="font-size: x-large;margin:0 1rem" >Menu </span>
+</div> 
   <div class="px-4 py-4">
   <table class="table">
-    <tbody class="table-striped">
-    <tr *ngFor="let val of menuform">
-      <td class="d-block p-3 fs-5"routerLink="/advocate"routerLinkActive="active" >{{val}}</td></tr>
-      
+    <tbody class="table-striped" >
+    <tr *ngFor="let val of menuform " > 
+      <!-- (click)="redirectTo(value)" -->
+      <td class="d-block p-3 fs-5" (click)="redirectTo(val.link)">{{val.name}}</td></tr>
     <tr>
     </tbody>
     </table>

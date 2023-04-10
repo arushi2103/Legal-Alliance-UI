@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-
-  constructor() { }
+  menuform=[{name:"Add Advocate",link:'/advocate'},{name:"Add Client",link:'client'},{name:"Add Case",link:'newcase'},
+            {name:"Report",link:'report'},{name:"Advocate Profile",link:'advocate-profile'},{name:"LOG OUT"}];
+  constructor(private route:Router) { }
 
   ngOnInit(): void {
   }
-  menuform=["Add Advocate","Add Client","Add Case","Report","Advocate Profile","LOG OUT"];
+  redirectTo(val:any){
+    this.route.navigate(['val']);
+  }
 }

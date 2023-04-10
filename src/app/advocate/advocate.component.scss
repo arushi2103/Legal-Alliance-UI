@@ -32,5 +32,19 @@ form {
         font-size: 1rem;
         cursor: pointer;
       }
+
+      .img_div{
+        position: relative;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+      }
+      .img-div img-input {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+      
+      
   }
   
