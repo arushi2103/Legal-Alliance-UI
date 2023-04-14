@@ -10,6 +10,10 @@
                 <input type="file" formControlName="imageFile"*ngIf="showImgInput" class="img-input"placeholder="add Image">
                 <span >Upload Image </span>
                 </div> 
+            <input class="my-2 rounded-3 border-dark" 
+            type="file" formControlName="attachedFile"Name="attachedFile"Placeholeder="Upload Attachments"
+            >
+           
 
             <input class="my-2 rounded-3 border-dark"
             [class.is-invalid]="clientName?.invalid && clientName?.touched"

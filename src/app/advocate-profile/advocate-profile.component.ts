@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import {ADVOCATE_URL}from './../Constants/constant';
 import { HttpService } from '../services/http.service';
@@ -13,7 +12,8 @@ import { HttpService } from '../services/http.service';
 export class AdvocateProfileComponent implements OnInit {
   Advocates: any[] = [];
   constructor(private http:HttpService,
-              private route:Router) { }
+              private route:Router
+              ) { }
 
   ngOnInit(): void {
     //to get advocates object from the database
@@ -21,22 +21,33 @@ export class AdvocateProfileComponent implements OnInit {
       this.Advocates=response;
     })
   }
-  // Advocates=["Advocate1","Advocate2","Advocate3","Advocate4","Advocate5"];
-  onEdit(id: any){
-    // navigate to the advocate form og give id and edit the data
-    // this.route.navigate([`advocate/${id}`]);
-
-  }
-  // deleteItem(id:any){
-  //   return this.http.delete(`${ADVOCATE_URL}/${id}`);
+  // deleteData(id:any){
+  //   this.http.deleteAdvocate(this.Advocates).subscribe(()=>{
+  //     this.Advocates=this.Advocates.filter(adv=>adv.id!==this.Advocates,id);
+  //     console.log(`details of advocate ${id} deleted successfully`);
+  //   },(error: { message: any; })=>{
+  //     console.error(`Error deleting the details of advocate ${id}:${error.message}`);
+  //   })
   // }
-  onDelete(id:any){
-    // this.deleteItem(id).subscribe(()=>{
-    //   console.log(`details of advocate ${id} deleted successfully`);
-    // },error=>{
-    //   console.error(`Erroe deleting the details of advocate ${id}:${error.message}`);
-    // })
+  deleteData(id:any) {
+    const encodedId = encodeURIComponent(id);
+    fetch(`ADVOCATE_URL/${encodedId}`, {
+      method: 'DELETE'
+    })
+    .then(res => {
+      if (res.ok) {
+        alert('Data deleted successfully');
+        window.location.reload(); // Reload the page to reflect the changes
+      } else {
+        alert('Failed ');
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      alert('Failed to delete data');
+    });
   }
+  
   showMenu(){
     this.route.navigate(['menu']);
   }

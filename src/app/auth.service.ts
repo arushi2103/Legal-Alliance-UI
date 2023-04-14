@@ -19,48 +19,27 @@ export class AuthService {
   }
 
   isLoggedIn() {
-    
-    return this.getToken() !== null;
+    return window.localStorage.getItem("isLoggedIn")==="yes"
   }
+
+  // login({ username, password }: any): Observable<any> {
+  //   console.log(username,password)
+  //   if (username === 'Apex@gmail.com' && password === 'Apex123') {
+  //     this.setToken('xyz');
+  //     return of({ username: 'Apex', email: 'Apex@gmail.com' });
+  //   }
+  //   return throwError(new Error('Failed to login'));
+  // }
+  
 
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['login']);
   }
-
-  login({ username, password }: any): Observable<any> {
-    console.log(username,password)
-    if (username === 'Apex@gmail.com' && password === 'Apex123') {
-      this.setToken('xyz');
-      return of({ username: 'Apex', email: 'Apex@gmail.com' });
-    }
-    return throwError(new Error('Failed to login'));
-  }
 }
 
 
 
-// import { ObserversModule } from '@angular/cdk/observers';
-// import { Injectable } from '@angular/core';
-// import {Subject}from 'rxjs';
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class AuthService {
-
-//   isloggedIn=false;
-
-//   authstatus:any
-//   constructor( ) {
-//      this.authstatus=new Subject();
-//    }
-//    setLoginStatus(flag:boolean){
-//     this.isloggedIn=flag;
-//    }
-//    getLoginStatus(){
-//     this.authstatus.next(this.isloggedIn);
-//    }
 
 
    

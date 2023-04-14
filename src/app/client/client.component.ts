@@ -34,12 +34,15 @@ export class ClientComponent implements OnInit {
 
   ngOnInit(): void {
     this.clientform=this.fb.group({
+      profileImg:[null],
+      attachedFile:[''],
       Name:['',[Validators.required]],
       Number:['',Validators.required],
       Address:['',Validators.required]
 
       
     })
+   
 
     let flag=window.localStorage.getItem("isLoggedIn");
     if (flag!=="yes"){

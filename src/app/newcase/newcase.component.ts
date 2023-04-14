@@ -68,7 +68,7 @@ get amountReceived(){
 
   onSubmit(){
     // console.log(this.newCaseForm.value);
-    this.http.post('cases', this.newCaseForm.value).subscribe((response)=>{
+    this.http.post('NewCases', this.newCaseForm.value).subscribe((response)=>{
       console.log(response);
       console.log(this.newCaseForm.value);
       this.route.navigate(['advocate-profile'])

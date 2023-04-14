@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -14,6 +15,9 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
   redirectTo(val:any){
-    this.route.navigate(['val']);
+    this.route.navigate([val]);
+  }
+  logout(){
+    this.route.navigate(['/login']);
   }
 }
