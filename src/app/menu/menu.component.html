@@ -1,0 +1,16 @@
+<div>
+  <div class="navbar d-inline-flex"> 
+    <mat-icon>menu</mat-icon>
+    <span style="font-size: x-large;margin:0 1rem" >Menu </span>
+</div> 
+  <div class="px-4 py-4">
+  <table class="table">
+    <tbody class="table-striped" >
+    <tr *ngFor="let val of menuform " > 
+      <!-- (click)="redirectTo(value)" -->
+      <td class="d-block p-3 fs-5" (click)="redirectTo(val.link)">{{val.name}}</td></tr>
+    <tr>
+    </tbody>
+    </table>
+  </div>
+</div>

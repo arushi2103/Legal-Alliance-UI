@@ -1,0 +1,67 @@
+<div class="container-fluid p-2">
+
+    <div class="navbar d-inline-flex"> 
+        <mat-icon (click)="showMenu()">menu</mat-icon>
+        <span style="font-size: x-large;margin:0 1rem" >Add Advocate </span>
+    </div>  <!-- {{advocateform.value|json}} -->
+    <form [formGroup]="advocateForm" (ngSubmit)="onSubmit()" >
+        <div class="form-group  " >
+            <div class="card border-box border-dark my-2 img_div"style="height:10rem; width:9rem;"(click)="addImg()"> 
+            <input type="file" formControlName="imageFile"*ngIf="showImgInput" class="img-input"placeholder="add Image">
+            <span >Upload Image </span>
+            </div> 
+            <!-- <div class="form-group" >
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="profile-image" accept="image/*">
+                </div>
+                <img id="preview-image" src="src\assets\LOGO.png" alt="Preview" class="img-fluid mt-2 d-none">
+              </div> -->
+              
+
+            <input class="my-2 rounded-3 border-dark" 
+                [class.is-invalid]="advName?.touched && advName?.invalid"    
+                name="advocateName" type="text" formControlName="advocateName" placeholder="name" >
+                <div *ngIf="advName?.invalid && advName?.touched" >
+                    <small *ngIf="advName?.invalid"class="text-danger">*This field is mandatory</small>
+                </div>
+
+
+
+            <input class="my-2 rounded-3 border-dark" 
+            [class.is-invalid]="advNumber?.touched && advNumber?.invalid"    
+            name="mobileNumber" type="tel" formControlName="mobileNumber"placeholder="mobile Number" >
+            <div *ngIf="advNumber?.invalid && advNumber?.touched" >
+                <small *ngIf="advNumber?.invalid"class="text-danger">*This field is mandatory</small>
+            </div>
+
+            <input class="my-2 rounded-3 border-dark"
+            [class.is-invalid]="advJoiningDate?.touched && advJoiningDate?.invalid"    
+            name="joiningDate" type="text"onfocus="(this.type='date')" formControlName="joiningDate" placeholder="Joining date" >
+            <div *ngIf="advJoiningDate?.invalid && advJoiningDate?.touched" >
+                <small *ngIf="advJoiningDate?.invalid"class="text-danger">*This field is mandatory</small>
+            </div>
+
+            <input class="my-2 rounded-3 border-dark" 
+            [class.is-invalid]="advAddress?.touched && advAddress?.invalid"    
+            name="address" type="textarea" formControlName="address"placeholder="Address" >
+            <div *ngIf="advAddress?.invalid && advAddress?.touched" >
+                <small *ngIf="advAddress?.invalid"class="text-danger">*This field is mandatory</small>
+            </div>
+        </div>
+        <div class=" flexbox  d-sm-flex flex-column justify-content-start align-self-start " >
+            <h2 >Specialization</h2>
+                <p class="error" *ngIf="this.advocateForm.controls['specialization'].errors?.['required']">
+                Checkbox is required, select atleast one value.
+              </p>
+                <div *ngFor="let data of specializationArray; let i=index" class="my-2">
+                  <label>
+                    <input type="checkbox" [value]="data" (change)="onCheckboxChange($event)"class="m-2 border-dark" />
+                    {{data}}
+                  </label>
+                </div>
+            </div>
+        <button class="btn btn-dark" type="submit" >Save</button>
+        <!-- (click)="onSave()" -->
+        <!-- [disabled]="!advocateForm.valid" -->
+    </form>
+</div>

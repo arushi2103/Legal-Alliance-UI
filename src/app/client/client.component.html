@@ -1,0 +1,46 @@
+<div class="container-fluid">
+
+    <div class="navbar d-inline-flex"> 
+        <mat-icon (click)="showMenu()">menu</mat-icon>
+        <span style="font-size: x-large;margin:0 1rem" >Add Client </span>
+    </div> 
+    <form [formGroup]="clientform" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <div class="card border-box border-dark my-2 img_div"style="height:10rem; width:9rem;"(click)="addImg()"> 
+                <input type="file" formControlName="imageFile"*ngIf="showImgInput" class="img-input"placeholder="add Image">
+                <span >Upload Image </span>
+                </div> 
+            <input class="my-2 rounded-3 border-dark" 
+            type="file" formControlName="attachedFile"Name="attachedFile"Placeholeder="Upload Attachments"
+            >
+           
+
+            <input class="my-2 rounded-3 border-dark"
+            [class.is-invalid]="clientName?.invalid && clientName?.touched"
+            type="text" name="Name" id=" "  
+            formControlName="Name" name="Name"placeholder="Enter Name ">
+            <div *ngIf="clientName?.invalid && clientName?.touched" >
+                <small *ngIf="clientName?.invalid"class="text-danger">*This field is mandatory</small>
+              </div>
+
+            <input class="my-2 rounded-3 border-dark"
+            [class.is-invalid]="clientMobileNumber?.invalid && clientMobileNumber?.touched"
+            type="tel" name="contact" id="" formControlName="Number" name="Number" placeholder="Mobile Number">
+            <div *ngIf="clientMobileNumber?.invalid && clientMobileNumber?.touched" >
+                <small *ngIf="clientMobileNumber?.invalid"class="text-danger">*This field is mandatory</small>
+            </div>
+
+            <input class="my-2 rounded-3 border-dark"
+            [class.is-invalid]="clientAddress?.invalid && clientAddress?.touched"
+            type="textarea" name="address" id="" formControlName="Address" namr="Address"placeholder="Address">
+            <div *ngIf="clientAddress?.invalid && clientAddress?.touched" >
+                <small *ngIf="clientAddress?.invalid"class="text-danger">*This field is mandatory</small>
+            </div>
+            <button type="submit"  >Save</button>
+        </div>
+     
+    </form>
+</div>
+
+
+        

@@ -1,0 +1,18 @@
+<div class="container-fluid py-3">
+    <div class="navbar d-inline-flex"> 
+        <mat-icon (click)="showMenu()">menu</mat-icon>
+        <span style="font-size: x-large;margin:0 1rem" >Advocate Profile </span>
+    </div> 
+    <div class="my-3" >
+        <div *ngFor="let advocate of Advocates"class="card border-dark py-2 my-2">
+          <div class="profile">
+           <img src="../../assets/LOGO.png" alt="profile-img" style="max-height: 4rem;">
+            <p>{{advocate.advocateName}}</p>
+           <div class="">
+            <mat-icon class="mx-2" >edit</mat-icon>
+            <mat-icon class="mx-2" (click)="deleteData('<%= advocate._id %>')">delete</mat-icon>
+           </div>
+          </div>
+    </div>
+    
+</div>

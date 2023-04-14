@@ -1,0 +1,16 @@
+table{
+    border-collapse: collapse;
+    width: 100%;
+
+}
+tr:nth-child(even) {background-color: hsla(0, 0%, 100%, 0.701);}
+
+tr:nth-child(odd) {background-color: hsla(0, 5%, 71%, 0.701);}
+tr:hover{background-color: rgba(209, 204, 204, 0.263);}
+
+nav{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    
+}
