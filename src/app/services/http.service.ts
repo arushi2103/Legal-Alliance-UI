@@ -13,8 +13,7 @@ import {NEWCASES_URL}from './../Constants/constant';
 export class HttpService {
   baseURL;
   
-  constructor(private http:HttpClient,
-             ) {
+  constructor(private http:HttpClient ) {
     this.baseURL=environment.baseURL;
 
    }

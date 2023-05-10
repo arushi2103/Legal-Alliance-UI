@@ -3,8 +3,9 @@
 <div class=" col login-container" >
   <div class="card " > <img  class="card-img-top" src="../../assets/loginimage.png" alt="login-image"></div>
   <h1>Login</h1>
+  
 
-  <form class="row-sm"[formGroup]="loginform" (ngSubmit)="onSubmit()" >
+  <form class="row-sm"[formGroup]="loginform" (ngSubmit)="login()">
     <div class="form-group">
       <label for="username"></label>
       <input [class.is-invalid]="username?.invalid && 
@@ -18,7 +19,7 @@
       <label for="password"></label>
       <input  type="password" name="password" id="password"formControlName="password" placeholder="Enter password" >
     </div>
-    <button class="btn btn-dark" type="submit">Login</button>
+    <button class="btn btn-dark" type="submit" >Login</button>
   </form>
  
 </div>

@@ -6,6 +6,9 @@ import { Observable, of, throwError,Subject } from 'rxjs';
   providedIn: 'root'
 }) 
 export class AuthService {
+  login(value: any) {
+    throw new Error('Method not implemented.');
+  }
  
   constructor(private router:Router) {
    }
@@ -21,20 +24,10 @@ export class AuthService {
   isLoggedIn() {
     return window.localStorage.getItem("isLoggedIn")==="yes"
   }
-
-  // login({ username, password }: any): Observable<any> {
-  //   console.log(username,password)
-  //   if (username === 'Apex@gmail.com' && password === 'Apex123') {
-  //     this.setToken('xyz');
-  //     return of({ username: 'Apex', email: 'Apex@gmail.com' });
-  //   }
-  //   return throwError(new Error('Failed to login'));
-  // }
-  
-
   logout() {
     localStorage.removeItem('token');
-    this.router.navigate(['login']);
+    window.localStorage.clear();
+    this.router.navigate(['/login']);
   }
 }
 
@@ -44,4 +37,4 @@ export class AuthService {
 
    
 
-// }
+

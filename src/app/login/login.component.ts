@@ -46,36 +46,24 @@ export class LoginComponent implements OnInit {
   getUser(url:string){
     return this.http.get(url)
   }
-  // login(){
-  //   console.log("Login button clicked");
-    
-  //   if(this.loginform.valid){
-  //     this.auth.login(this.loginform.value).subscribe(
-  //       (result)=>{
-  //         window.localStorage.setItem("isLoggedIn","yes");
-  //         this.route.navigate(['/advocate']);
-  //       },
-  //       (err:Error)=>{
-  //         alert(err.message);
-  //       }
-  //     )
-  //   }
-    
-  // }
+  
+  login(){
+    console.log('login button clicked');
+    window.localStorage.setItem("isLoggedIn","yes");
+    this.route.navigate(['/advocate']);
+
+  }
 // Submit method for sending input to the api and verifying 
 // from database if it is a correct input or not
-onSubmit() {
-  // bcrypt.hash(this.loginform.get('password')?.value, 10, (err: any, hash: any) => {
-   
-  //   });
+onSubmit(){
   const credentials = { email: this.loginform.get('username')?.value, password: this.loginform.get('password')?.value };
   this.http.post(LOGINCREDENTIALS_URL, credentials).subscribe(response => {
     // Handle server response
-    if (response.login=='success') {
+    if(response.login=='success') {
       window.localStorage.setItem("isLoggedIn","yes");
       console.log("Login button clicked");
       console.log(this.loginform.value);
-      this.route.navigate([ADVOCATE_URL]);
+      this.route.navigate(['/advocate']);
     } else {
       alert('Invalid email or password');
     }

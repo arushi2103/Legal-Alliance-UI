@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators, FormGroup } from '@angular/forms';
 import { Route,RouterLink,Router  } from '@angular/router';
 import { HttpService } from '../services/http.service';
+import { NEWCASES_URL } from '../Constants/constant';
 
 @Component({
   selector: 'app-newcase',
@@ -68,7 +69,7 @@ get amountReceived(){
 
   onSubmit(){
     // console.log(this.newCaseForm.value);
-    this.http.post('NewCases', this.newCaseForm.value).subscribe((response)=>{
+    this.http.post(NEWCASES_URL, this.newCaseForm.value).subscribe((response)=>{
       console.log(response);
       console.log(this.newCaseForm.value);
       this.route.navigate(['advocate-profile'])

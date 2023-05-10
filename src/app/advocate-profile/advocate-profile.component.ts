@@ -29,23 +29,22 @@ export class AdvocateProfileComponent implements OnInit {
   //     console.error(`Error deleting the details of advocate ${id}:${error.message}`);
   //   })
   // }
+ 
   deleteData(id:any) {
     const encodedId = encodeURIComponent(id);
-    fetch(`ADVOCATE_URL/${encodedId}`, {
-      method: 'DELETE'
-    })
-    .then(res => {
-      if (res.ok) {
-        alert('Data deleted successfully');
+    this.http.deleteAdvocate(encodedId).subscribe( res => {
+      console.log(res)
+      if (res.status == 200) {
+        alert('Advocate Data deleted successfully');
         window.location.reload(); // Reload the page to reflect the changes
       } else {
-        alert('Failed ');
+        alert('Failed to delete');
       }
-    })
-    .catch(error => {
+    }, (error)=> {
       console.error(error);
       alert('Failed to delete data');
-    });
+    })
+     
   }
   
   showMenu(){
