@@ -109,5 +109,8 @@
       }
     }
   },
-  "defaultProject": "Legalalliance"
+  "defaultProject": "Legalalliance",
+  "cli": {
+    "analytics": false
+  }
 }
